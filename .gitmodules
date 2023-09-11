@@ -1,0 +1,6 @@
+[submodule "arcade-games-tracker-frontend"]
+	path = arcade-games-tracker-frontend
+	url = https://github.com/PPL-TI-Unpad-Serah/arcade-games-tracker-frontend
+[submodule "arcade-games-tracker-backend"]
+	path = arcade-games-tracker-backend
+	url = https://github.com/PPL-TI-Unpad-Serah/arcade-games-tracker-backend
