@@ -1,0 +1,6 @@
+[submodule "agatra-frontend"]
+	path = agatra-frontend
+	url = https://github.com/PPL-TI-Unpad-Serah/agatra-frontend
+[submodule "agatra-backend"]
+	path = agatra-backend
+	url = https://github.com/PPL-TI-Unpad-Serah/agatra-backend
