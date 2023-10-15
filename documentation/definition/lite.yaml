@@ -621,17 +621,8 @@ paths:
               properties:
                 name:
                   type: string
-                version_id:
-                  $ref: "#/components/schemas/version_id"
-                cover_image:
+                info:
                   type: string
-                  format: binary
-                  description: Not required. If not provided, the existing cover image will be kept
-                title_id:
-                  $ref: '#/components/schemas/title_id'
-                price:
-                  description: The price for each play of a version
-                  type: integer
       responses:
         "200":
           description: The edited version
