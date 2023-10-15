@@ -1001,18 +1001,14 @@ components:
     user:
       description: An user object
       type: object
-      required:
-        - user_id
-        - username
-        - password
       properties:
         user_id:
           $ref: '#/components/schemas/user_id'
         username:
           description: The name of an user
           type: string
-        password:
-          description: The password needed for an user to log in to the application
+        email:
+          description: The email needed for an user to log in to the application
           type: string
         role:
           description: The roles assigned to an user
