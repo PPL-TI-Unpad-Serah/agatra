@@ -910,16 +910,14 @@ components:
       description: A version object
       type: object
       properties:
-        version_id:
+        id:
           $ref: '#/components/schemas/version_id'
-        title:
-          $ref: '#/components/schemas/title'
-        version_name:
+        name:
           description: The name of a version
           type: string
-        price:
-          description: The price for each play of a version
-          type: integer
+        info:
+          description: Info of a version. Can be null
+          type: string
     title_id:
       description: The unique identifier of a title
       type: integer
@@ -927,11 +925,15 @@ components:
       description: A title object
       type: object
       properties:
-        title_id:
+        id:
           $ref: '#/components/schemas/title_id'
-        title_name:
+        name:
           description: The name of the title
           type: string
+        versions:
+          type: array
+          items:
+            $ref: '#/components/schemas/version'
     user_id:
       description: The user identifier of an user
       type: integer
