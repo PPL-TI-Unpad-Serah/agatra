@@ -585,88 +585,26 @@ paths:
         "403":
           description: Forbidden because user do not have sufficient authority to edit or delete stuff.
 
-  /versions:
+  /versions/{title_id}:
+    parameters:
+      - name: title_id
+        in: path
+        required: true
+        schema:
+          $ref: "#/components/schemas/title_id"
     get:
       summary: Get all arcade machine versions
-      description: Get all arcade machine versions. Fetches 10 items at a time
-      parameters:
-        - name: title
-          description: defaults to all title if not provided
-          in: query
-          schema:
-            $ref: "#/components/schemas/title_id"
-        - name: page
-          description: defaults to 1 (first page) if not provided
-          in: query
-          schema:
-            type: integer
-        - name: search
-          in: query
-          description: |
-            mostly for creator page \
-            If using search query, page query will not apply (fetch all results) \
-            Search query should be >3 characters in length to take effect
-          schema:
-            type: string
+      description: Get all arcade machine versions of a title
       responses:
         '200':
-          description: All arcade machine versions on the specified page
+          description: All arcade machine versions of the title specified in `title_id`
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: "#/components/schemas/version"
-  # /versions/{version_id}:
-  #   parameters:
-  #     - name: version_id
-  #       in: path
-  #       required: true
-  #       schema:
-  #         $ref: "#/components/schemas/version_id"
-  #   get:
-  #     summary: Get a version
-  #     responses:
-  #       "200":
-  #         description: The version corresponding to the provided `version_id`
-  #         content:
-  #           application/json:
-  #             schema:
-  #               $ref: "#/components/schemas/version"
-  # /admin/versions:
-  #   post:
-  #     summary: Add a version
-  #     description: Add a version. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
-  #     requestBody:
-  #       content:
-  #         "multipart/form-data":
-  #           schema:
-  #             properties:
-  #               name:
-  #                 type: string
-  #               version_id:
-  #                 $ref: "#/components/schemas/version_id"
-  #               cover_image:
-  #                 type: string
-  #                 format: binary
-  #                 description: Not required. If not provided, the existing cover image will be kept
-  #               title_id:
-  #                 $ref: '#/components/schemas/title_id'
-  #               price:
-  #                 description: The price for each play of a version
-  #                 type: integer
-  #     responses:
-  #       "200":
-  #         description: The added version
-  #         content:
-  #           application/json:
-  #             schema:
-  #               $ref: "#/components/schemas/version"
-  #       "401":
-  #         description: Unauthorized because user is unauthenticated. Must login first
-  #       "403":
-  #         description: Forbidden because user do not have sufficient authority to edit or delete stuff.
-  # /admin/versions/{version_id}:
+  /admin/versions/{version_id}:
     parameters:
       - name: version_id
         in: path
@@ -706,7 +644,7 @@ paths:
         "403":
           description: Forbidden because user do not have sufficient authority to edit or delete stuff.
 
-  /titles:
+  /titles/:
     get:
       summary: Get all arcade machine titles
       description: Get all arcade machine titles. Fetches 10 items at a time
