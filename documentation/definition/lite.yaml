@@ -855,33 +855,6 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/user"
-    post:
-      summary: Add a user
-      description: Add a user. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
-      requestBody:
-        content:
-          "multipart/form-data":
-            schema:
-              properties:
-                name:
-                  type: string
-                user_id:
-                  $ref: "#/components/schemas/user_id"
-                cover_image:
-                  type: string
-                  format: binary
-                  description: Not required. If not provided, the existing cover image will be kept
-      responses:
-        "200":
-          description: The added user
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/user"
-        "401":
-          description: Unauthorized because user is unauthenticated. Must login first
-        "403":
-          description: Forbidden because user do not have sufficient authority to edit or delete stuff.
   /admin/users/{user_id}:
     parameters:
       - name: user_id
