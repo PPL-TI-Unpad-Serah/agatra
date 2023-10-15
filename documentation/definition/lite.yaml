@@ -861,7 +861,7 @@ paths:
         in: path
         required: true
         schema:
-          $ref: "#/components/schemas/title_id"
+          $ref: "#/components/schemas/user_id"
     put:
       summary: Edit a user
       description: Edit a user. Only `admin` role can use this endpoint.
