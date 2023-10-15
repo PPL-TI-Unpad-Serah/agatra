@@ -888,7 +888,7 @@ components:
   schemas:
     centre_id:
       description: The unique identifier of an arcade centre
-      type: string
+      type: integer
     centre:
       description: A centre object
       type: object
@@ -908,7 +908,7 @@ components:
           type: number
     city_id:
       description: The unique identifier of a city
-      type: string
+      type: integer
     city:
       description: A city object
       type: object
@@ -928,7 +928,7 @@ components:
           type: string
     location_id:
       description: The unique identifier of a location
-      type: string
+      type: integer
     location:
       description: A location object
       type: object
@@ -948,7 +948,7 @@ components:
           type: string
     machine_id:
       description: The unique identifier of an arcade machine
-      type: string    
+      type: integer    
     machine:
       description: A machine object
       type: object
@@ -967,7 +967,7 @@ components:
           type: integer
     version_id:
       description: The unique identifier of the version of an arcade machine
-      type: string
+      type: integer
     version:
       description: A version object
       type: object
@@ -984,7 +984,7 @@ components:
           type: integer
     title_id:
       description: The unique identifier of a title
-      type: string
+      type: integer
     title:
       description: A title object
       type: object
@@ -996,8 +996,7 @@ components:
           type: string
     user_id:
       description: The user identifier of an user
-      type: string
-      format: uuid
+      type: integer
     user:
       description: An user object
       type: object
