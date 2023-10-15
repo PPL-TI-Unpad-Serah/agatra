@@ -57,7 +57,54 @@ paths:
       responses:
         200:
           description: Logged out
-  
+  /register:
+    post:
+      summary: Create a new account
+      requestBody:
+        content:
+          "multipart-form-data":
+            schema:
+              properties:
+                username:
+                  description: The name of an user. Should be unique and consist of 3 to 30 alphanumeric characters
+                  type: string
+                email:
+                  description: Email to connect to user account. Should be a valid email address
+                  type: string
+                password:
+                  description: The password needed for an user to log in to the application. Should be between 8 and 50 characters in length
+                  type: string
+                confirm_password:
+                  description: Typing the password the second time to ensure no typo and confirmation. Should be the same as password
+                  type: string
+      responses:
+        200:
+          description: Account succesfully created
+        400: 
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    $ref: "#/components/schemas/error"
+        409: 
+          description: Account username or email already existed
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    $ref: "#/components/schemas/error"
+        500: 
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    $ref: "#/components/schemas/error"
+
   /centres:
     get:
       summary: Get all arcade centres
@@ -1030,10 +1077,14 @@ components:
       properties:
         id:
           $ref: '#/components/schemas/location_id'
-        centre_id:
-          $ref: '#/components/schemas/centre_id'
-        city_id:
-          $ref: '#/components/schemas/city_id'
+        centre:
+          $ref: '#/components/schemas/centre'
+        machines:
+          type: array
+          items:
+            $ref: '#/components/schemas/machine'
+        city:
+          $ref: '#/components/schemas/city'
         name:
           description: The name of a location
           type: string
@@ -1046,10 +1097,10 @@ components:
       properties:
         machine_id:
           $ref: '#/components/schemas/machine_id'
-        location_id:
-          $ref: "#/components/schemas/location_id"
-        version_id:
-          $ref: '#/components/schemas/version_id'
+        location:
+          $ref: "#/components/schemas/location"
+        version:
+          $ref: '#/components/schemas/version'
         machine_count:
           description: The amount of a machine in an arcade centre
           type: integer
@@ -1065,8 +1116,8 @@ components:
       properties:
         version_id:
           $ref: '#/components/schemas/version_id'
-        title_id:
-          $ref: '#/components/schemas/title_id'
+        title:
+          $ref: '#/components/schemas/title'
         version_name:
           description: The name of a version
           type: string
