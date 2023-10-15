@@ -891,28 +891,17 @@ paths:
           $ref: "#/components/schemas/title_id"
     put:
       summary: Edit a user
-      description: Edit a user. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
+      description: Edit a user. Only `admin` role can use this endpoint.
       requestBody:
         content:
           "multipart/form-data":
             schema:
               properties:
-                username:
-                  type: string
-                user_id:
-                  $ref: "#/components/schemas/user_id"
-                cover_image:
-                  type: string
-                  format: binary
-                  description: Not required. If not provided, the existing cover image will be kept
-                password:
-                  description: The password needed for an user to log in to the application
-                  type: string
                 role:
                   description: The roles assigned to an user
                   type: string
                   enum:
-                    - member
+                    - user
                     - admin
                     - maintainer
       responses:
