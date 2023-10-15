@@ -644,78 +644,20 @@ paths:
         "403":
           description: Forbidden because user do not have sufficient authority to edit or delete stuff.
 
-  /titles/:
+  /titles:
     get:
-      summary: Get all arcade machine titles
-      description: Get all arcade machine titles. Fetches 10 items at a time
-      parameters:
-        - name: page
-          description: defaults to 1 (first page) if not provided
-          in: query
-          schema:
-            type: integer
-        - name: search
-          in: query
-          description: |
-            mostly for creator page \
-            If using search query, page query will not apply (fetch all results) \
-            Search query should be >3 characters in length to take effect
-          schema:
-            type: string
+      summary: Get all arcade game titles
+      description: Get all arcade game titles
       responses:
         '200':
-          description: All arcade machine titles on the specified page
+          description: All arcade game titles
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: "#/components/schemas/title"
-  # /titles/{title_id}:
-  #   parameters:
-  #     - name: title_id
-  #       in: path
-  #       required: true
-  #       schema:
-  #         $ref: "#/components/schemas/title_id"
-  #   get:
-  #     summary: Get a title
-  #     responses:
-  #       "200":
-  #         description: The title corresponding to the provided `title_id`
-  #         content:
-  #           application/json:
-  #             schema:
-  #               $ref: "#/components/schemas/title"
-  # /admin/titles:
-  #   post:
-  #     summary: Add a title
-  #     description: Add a title. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
-  #     requestBody:
-  #       content:
-  #         "multipart/form-data":
-  #           schema:
-  #             properties:
-  #               name:
-  #                 type: string
-  #               title_id:
-  #                 $ref: "#/components/schemas/title_id"
-  #               cover_image:
-  #                 type: string
-  #                 format: binary
-  #                 description: Not required. If not provided, the existing cover image will be kept
-  #     responses:
-  #       "200":
-  #         description: The added title
-  #         content:
-  #           application/json:
-  #             schema:
-  #               $ref: "#/components/schemas/title"
-  #       "401":
-  #         description: Unauthorized because user is unauthenticated. Must login first
-  #       "403":
-  #         description: Forbidden because user do not have sufficient authority to edit or delete stuff.
-  # /admin/titles/{title_id}:
+  /admin/titles/{title_id}:
     parameters:
       - name: title_id
         in: path
@@ -723,8 +665,8 @@ paths:
         schema:
           $ref: "#/components/schemas/title_id"
     put:
-      summary: Edit a title
-      description: Edit a title. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
+      summary: Edit an arcade game title
+      description: Edit an arcade game title. Only `admin` can use this endpoint.
       requestBody:
         content:
           "multipart/form-data":
@@ -732,15 +674,9 @@ paths:
               properties:
                 name:
                   type: string
-                title_id:
-                  $ref: "#/components/schemas/title_id"
-                cover_image:
-                  type: string
-                  format: binary
-                  description: Not required. If not provided, the existing cover image will be kept
       responses:
         "200":
-          description: The edited title
+          description: The edited arcade game title
           content:
             application/json:
               schema:
