@@ -1153,6 +1153,9 @@ components:
         username:
           description: The name of an user
           type: string
+        email:
+          description: The email connected to user
+          type: string
         password:
           description: The password needed for an user to log in to the application
           type: string
