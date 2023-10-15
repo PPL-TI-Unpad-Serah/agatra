@@ -218,20 +218,6 @@ paths:
           description: Unauthorized because user is unauthenticated. Must login first
         "403":
           description: Forbidden because user do not have sufficient authority to add, edit or delete stuff.
-    delete:
-      summary: Delete a centre
-      description: Can only be done by user with the role 'admin' or 'maintainer'
-      responses:
-        "200":
-          description: Centre deleted
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/centre"
-        "401":
-          description: Unauthorized because user is unauthenticated. Must login first
-        "403":
-          description: Forbidden because user do not have sufficient authority to add, edit or delete stuff.
   
   /cities:
     get:
@@ -330,20 +316,6 @@ paths:
       responses:
         "200":
           description: The edited city
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/city"
-        "401":
-          description: Unauthorized because user is unauthenticated. Must login first
-        "403":
-          description: Forbidden because user do not have sufficient authority to add, edit or delete stuff.
-    delete:
-      summary: Delete a city. 
-      description: Can only be done by user with the role 'admin' or 'maintainer'
-      responses:
-        "200":
-          description: City deleted
           content:
             application/json:
               schema:
@@ -468,20 +440,6 @@ paths:
       responses:
         "200":
           description: The edited location
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/location"
-        "401":
-          description: Unauthorized because user is unauthenticated. Must login first
-        "403":
-          description: Forbidden because user do not have sufficient authority to edit or delete stuff.
-    delete:
-      summary: Delete a location
-      description: Can only be done by user with the role 'admin' or 'maintainer'
-      responses:
-        "200":
-          description: Location deleted
           content:
             application/json:
               schema:
@@ -626,20 +584,6 @@ paths:
           description: Unauthorized because user is unauthenticated. Must login first
         "403":
           description: Forbidden because user do not have sufficient authority to edit or delete stuff.
-    delete:
-      summary: Delete a machine
-      description: Can only be done by user with the role 'admin' or 'maintainer'
-      responses:
-        "200":
-          description: Machine deleted
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/machine"
-        "401":
-          description: Unauthorized because user is unauthenticated. Must login first
-        "403":
-          description: Forbidden because user do not have sufficient authority to edit or delete stuff.
 
   /versions:
     get:
@@ -761,20 +705,6 @@ paths:
           description: Unauthorized because user is unauthenticated. Must login first
         "403":
           description: Forbidden because user do not have sufficient authority to edit or delete stuff.
-    delete:
-      summary: Delete a version
-      description: Can only be done by user with the role 'admin' or 'maintainer'
-      responses:
-        "200":
-          description: Version deleted
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/version"
-        "401":
-          description: Unauthorized because user is unauthenticated. Must login first
-        "403":
-          description: Forbidden because user do not have sufficient authority to edit or delete stuff.
 
   /titles:
     get:
@@ -873,20 +803,6 @@ paths:
       responses:
         "200":
           description: The edited title
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/title"
-        "401":
-          description: Unauthorized because user is unauthenticated. Must login first
-        "403":
-          description: Forbidden because user do not have sufficient authority to edit or delete stuff.
-    delete:
-      summary: Delete a title
-      description: Can only be done by user with the role 'admin' or 'maintainer'
-      responses:
-        "200":
-          description: Title deleted
           content:
             application/json:
               schema:
@@ -1002,20 +918,6 @@ paths:
       responses:
         "200":
           description: The edited user
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/user"
-        "401":
-          description: Unauthorized because user is unauthenticated. Must login first
-        "403":
-          description: Forbidden because user do not have sufficient authority to edit or delete stuff.
-    delete:
-      summary: Delete a user
-      description: Can only be done by user with the role 'admin' or 'maintainer'
-      responses:
-        "200":
-          description: User deleted
           content:
             application/json:
               schema:
