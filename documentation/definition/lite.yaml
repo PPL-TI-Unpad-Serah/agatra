@@ -161,10 +161,6 @@ paths:
                   type: string
                 arcade_center_id:
                   $ref: "#/components/schemas/arcade_center_id"
-                cover_image:
-                  type: string
-                  format: binary
-                  description: Not required. If not provided, the existing cover image will be kept
                 currency:
                   type: string
                 currency_rate:
@@ -231,10 +227,6 @@ paths:
                   type: string
                 city_id:
                   $ref: "#/components/schemas/city_id"
-                cover_image:
-                  type: string
-                  format: binary
-                  description: Not required. If not provided, the existing cover image will be kept
       responses:
         "200":
           description: The edited city
@@ -305,10 +297,6 @@ paths:
                   type: string
                 location_id:
                   $ref: "#/components/schemas/arcade_location_id"
-                cover_image:
-                  type: string
-                  format: binary
-                  description: Not required. If not provided, the existing cover image will be kept
                 city_id:
                   $ref: "#/components/schemas/city_id"
                 arcade_center_id:
@@ -391,10 +379,6 @@ paths:
                   type: string
                 machine_id:
                   $ref: "#/components/schemas/arcade_machine_id"
-                cover_image:
-                  type: string
-                  format: binary
-                  description: Not required. If not provided, the existing cover image will be kept
                 location_id:
                   $ref: "#/components/schemas/arcade_location_id"
                 game_title_version_id:
@@ -437,10 +421,6 @@ paths:
                   type: string
                 machine_id:
                   $ref: "#/components/schemas/arcade_machine_id"
-                cover_image:
-                  type: string
-                  format: binary
-                  description: Not required. If not provided, the existing cover image will be kept
                 game_title_version_id:
                   $ref: '#/components/schemas/game_title_version_id'
                 machine_count:
