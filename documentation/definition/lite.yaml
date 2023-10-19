@@ -10,6 +10,8 @@ servers:
 paths:
   /login:
     post:
+      tags:
+        - Auth
       summary: Login
       security: []
       requestBody:
@@ -53,12 +55,16 @@ paths:
                     $ref: "#/components/schemas/error"
   /logout:
     post:
+      tags:
+        - Auth
       summary: Logout
       responses:
         200:
           description: Logged out
   /register:
     post:
+      tags:
+        - Auth
       summary: Create a new account
       requestBody:
         content:
@@ -107,6 +113,8 @@ paths:
 
   /centres:
     get:
+      tags:
+        - User Search
       summary: Get all arcade centres
       description: Get all arcade centres. Fetches 10 items at a time
       parameters:
@@ -221,6 +229,8 @@ paths:
   
   /cities:
     get:
+      tags:
+        - User Search
       summary: Get all cities
       description: Get all city. Fetches 10 at a time
       parameters:
@@ -593,6 +603,8 @@ paths:
         schema:
           $ref: "#/components/schemas/title_id"
     get:
+      tags:
+        - User Search
       summary: Get all arcade machine versions
       description: Get all arcade machine versions of a title
       responses:
@@ -637,6 +649,8 @@ paths:
 
   /titles:
     get:
+      tags:
+        - User Search
       summary: Get all arcade game titles
       description: Get all arcade game titles
       responses:
