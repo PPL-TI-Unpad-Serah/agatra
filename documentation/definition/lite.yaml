@@ -868,7 +868,7 @@ components:
           description: Info of a version. Can be null
           type: string
         title:
-          $ref: '#/components/schemas/title_compact'
+          $ref: '#/components/schemas/game_title_compact'
     game_title_version_compact:
       description: A version object without title field
       properties:
@@ -896,7 +896,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/game_title_version_compact'
-    title_compact:
+    game_title_compact:
       description: A title object without versions field
       type: object
       properties:
