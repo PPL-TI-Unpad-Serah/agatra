@@ -196,6 +196,8 @@ paths:
         schema:
           $ref: "#/components/schemas/arcade_center_id"
     put:
+      tags:
+        - Maintainer Content Management
       summary: Edit a centre
       description: Edit a centre. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
       requestBody:
@@ -308,6 +310,8 @@ paths:
         schema:
           $ref: "#/components/schemas/city_id"
     put:
+      tags:
+        - Admin Supported Content Management
       summary: Edit a city
       description: Edit a city. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
       requestBody:
@@ -428,6 +432,8 @@ paths:
         schema:
           $ref: "#/components/schemas/arcade_location_id"
     put:
+      tags:
+        - Maintainer Content Management
       summary: Edit a location
       description: Edit a location. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
       requestBody:
@@ -558,6 +564,8 @@ paths:
         schema:
           $ref: "#/components/schemas/arcade_machine_id"
     put:
+      tags:
+        - Maintainer Content Management
       summary: Edit a machine
       description: Edit a machine. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
       requestBody:
@@ -622,6 +630,8 @@ paths:
         schema:
           $ref: "#/components/schemas/game_title_version_id"
     put:
+      tags:
+        - Admin Supported Content Management
       summary: Edit a version
       description: Edit a version. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
       requestBody:
@@ -668,6 +678,8 @@ paths:
         schema:
           $ref: "#/components/schemas/game_title_id"
     put:
+      tags:
+        - Admin Supported Content Management
       summary: Edit an arcade game title
       description: Edit an arcade game title. Only `admin` can use this endpoint.
       requestBody:
@@ -697,6 +709,8 @@ paths:
         schema:
           $ref: "#/components/schemas/user_id"
     get:
+      tags:
+        - Admin User Management
       summary: Get an user
       responses:
         "200":
@@ -707,6 +721,8 @@ paths:
                 $ref: "#/components/schemas/user"
   /users:
     get:
+      tags:
+        - Admin User Management
       summary: Search for users
       description: Search for users
       parameters:
@@ -734,6 +750,8 @@ paths:
         schema:
           $ref: "#/components/schemas/user_id"
     put:
+      tags:
+        - Admin User Management
       summary: Edit a user
       description: Edit a user. Only `admin` role can use this endpoint.
       requestBody:
