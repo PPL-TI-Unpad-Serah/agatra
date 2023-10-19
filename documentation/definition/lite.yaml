@@ -111,7 +111,7 @@ paths:
                   error:
                     $ref: "#/components/schemas/error"
 
-  /centres:
+  /arcade_centers:
     get:
       tags:
         - User Search
@@ -139,19 +139,19 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/centre"
-  # /centres/{centre_id}:
+                  $ref: "#/components/schemas/arcade_centers"
+  # /centres/{arcade_center_id}:
   #   parameters:
-  #     - name: centre_id
+  #     - name: arcade_center_id
   #       in: path
   #       required: true
   #       schema:
-  #         $ref: "#/components/schemas/centre_id"
+  #         $ref: "#/components/schemas/arcade_center_id"
   #   get:
-  #     summary: Get a centre corresponding to the provided `centre_id`
+  #     summary: Get a centre corresponding to the provided `arcade_center_id`
   #     responses:
   #       "200":
-  #         description: The centre corresponding to the provided `centre_id`
+  #         description: The centre corresponding to the provided `arcade_center_id`
   #         content:
   #           application/json:
   #             schema:
@@ -167,8 +167,8 @@ paths:
   #             properties:
   #               name:
   #                 type: string
-  #               centre_id:
-  #                 $ref: "#/components/schemas/centre_id"
+  #               arcade_center_id:
+  #                 $ref: "#/components/schemas/arcade_center_id"
   #               cover_image:
   #                 type: string
   #                 format: binary
@@ -188,13 +188,13 @@ paths:
   #         description: Unauthorized because user is unauthenticated. Must login first
   #       "403":
   #         description: Forbidden because user do not have sufficient authority to add, edit or delete stuff.
-  /admin/centres/{centre_id}:
+  /admin/arcade_centers/{arcade_center_id}:
     parameters:
-      - name: centre_id
+      - name: arcade_center_id
         in: path
         required: true
         schema:
-          $ref: "#/components/schemas/centre_id"
+          $ref: "#/components/schemas/arcade_center_id"
     put:
       summary: Edit a centre
       description: Edit a centre. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
@@ -205,8 +205,8 @@ paths:
               properties:
                 name:
                   type: string
-                centre_id:
-                  $ref: "#/components/schemas/centre_id"
+                arcade_center_id:
+                  $ref: "#/components/schemas/arcade_center_id"
                 cover_image:
                   type: string
                   format: binary
@@ -221,7 +221,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/centre"
+                $ref: "#/components/schemas/arcade_centers"
         "401":
           description: Unauthorized because user is unauthenticated. Must login first
         "403":
@@ -344,7 +344,7 @@ paths:
           description: defaults to all centre if not provided
           in: query
           schema: 
-            $ref: "#/components/schemas/centre"
+            $ref: "#/components/schemas/arcade_centers"
         - name: city
           description: defaults to all city if not provided
           in: query
@@ -407,8 +407,8 @@ paths:
   #                 description: Not required. If not provided, the existing cover image will be kept
   #               city_id:
   #                 $ref: "#/components/schemas/city_id"
-  #               centre_id:
-  #                 $ref: "#/components/schemas/centre_id"
+  #               arcade_center_id:
+  #                 $ref: "#/components/schemas/arcade_center_id"
   #     responses:
   #       "200":
   #         description: The added location
@@ -445,8 +445,8 @@ paths:
                   description: Not required. If not provided, the existing cover image will be kept
                 city_id:
                   $ref: "#/components/schemas/city_id"
-                centre_id:
-                  $ref: "#/components/schemas/centre_id"
+                arcade_center_id:
+                  $ref: "#/components/schemas/arcade_center_id"
       responses:
         "200":
           description: The edited location
@@ -765,17 +765,17 @@ paths:
 
 components:
   schemas:
-    centre_id:
-      description: The unique identifier of an arcade centre
+    arcade_center_id:
+      description: The unique identifier of an arcade center
       type: integer
-    centre:
-      description: A centre object
+    arcade_centers:
+      description: An arcade center object
       type: object
       required:
         - id
       properties:
         id:
-          $ref: '#/components/schemas/centre_id'
+          $ref: '#/components/schemas/arcade_center_id'
         name:
           description: The name of an arcade centre
           type: string
@@ -815,7 +815,7 @@ components:
         id:
           $ref: '#/components/schemas/location_id'
         centre:
-          $ref: '#/components/schemas/centre'
+          $ref: '#/components/schemas/arcade_centers'
         machines:
           type: array
           items:
