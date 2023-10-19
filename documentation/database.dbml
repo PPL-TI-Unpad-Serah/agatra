@@ -38,7 +38,7 @@ Table cities {
 Table game_centers {
   id integer [primary key]
   name varchar [note: "Timezone, Game Master, etc"]
-  price_info text [note: 'Notably, Timezone has its own TIZO currency. Other than that, probably just tell the various promo a customer can get']
+  info text [note: 'Notably, Timezone has its own TIZO currency. Other than that, probably just tell the various promo a customer can get']
 }
 
 Table arcade_locations {
