@@ -335,7 +335,7 @@ paths:
         "403":
           description: Forbidden because user do not have sufficient authority to add, edit or delete stuff.
 
-  /locations:
+  /arcade_locations:
     get:
       summary: Get the location to the corresponding 'location_id'
       description: Get all locations. Fetches 10 at a time
@@ -420,13 +420,13 @@ paths:
   #         description: Unauthorized because user is unauthenticated. Must login first
   #       "403":
   #         description: Forbidden because user do not have sufficient authority to edit or delete stuff.
-  /admin/locations/{location_id}:
+  /admin/arcade_locations/{arcade_location_id}:
     parameters:
-      - name: location_id
+      - name: arcade_location_id
         in: path
         required: true
         schema:
-          $ref: "#/components/schemas/location_id"
+          $ref: "#/components/schemas/arcade_location_id"
     put:
       summary: Edit a location
       description: Edit a location. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
@@ -438,7 +438,7 @@ paths:
                 name:
                   type: string
                 location_id:
-                  $ref: "#/components/schemas/location_id"
+                  $ref: "#/components/schemas/arcade_location_id"
                 cover_image:
                   type: string
                   format: binary
@@ -453,7 +453,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/location"
+                $ref: "#/components/schemas/arcade_location"
         "401":
           description: Unauthorized because user is unauthenticated. Must login first
         "403":
@@ -473,7 +473,7 @@ paths:
           description: defaults to all location if not provided
           in: query
           schema:
-            $ref: "#/components/schemas/location_id"
+            $ref: "#/components/schemas/arcade_location_id"
         - name: page
           description: defaults to 1 (first page) if not provided
           in: query
@@ -530,7 +530,7 @@ paths:
                   format: binary
                   description: Not required. If not provided, the existing cover image will be kept
                 location_id:
-                  $ref: "#/components/schemas/location_id"
+                  $ref: "#/components/schemas/arcade_location_id"
                 game_title_version_id:
                   $ref: '#/components/schemas/game_title_version_id'
                 machine_count:
@@ -573,8 +573,6 @@ paths:
                   type: string
                   format: binary
                   description: Not required. If not provided, the existing cover image will be kept
-                location_id:
-                  $ref: "#/components/schemas/location_id"
                 game_title_version_id:
                   $ref: '#/components/schemas/game_title_version_id'
                 machine_count:
@@ -805,15 +803,15 @@ components:
         message:
           description: A human readable error message
           type: string
-    location_id:
+    arcade_location_id:
       description: The unique identifier of a location
       type: integer
-    location:
+    arcade_location:
       description: A location object
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/location_id'
+          $ref: '#/components/schemas/arcade_location_id'
         centre:
           $ref: '#/components/schemas/arcade_center'
         machines:
@@ -825,12 +823,12 @@ components:
         name:
           description: The name of a location
           type: string
-    location_compact:
+    arcade_location_compact:
       description: A compact location object to display on search results
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/location_id'
+          $ref: '#/components/schemas/arcade_location_id'
         versions:
           type: array
           items:
@@ -845,7 +843,7 @@ components:
         machine_id:
           $ref: '#/components/schemas/arcade_machine_id'
         location:
-          $ref: "#/components/schemas/location"
+          $ref: '#/components/schemas/arcade_location'
         version:
           $ref: '#/components/schemas/game_title_version'
         machine_count:
