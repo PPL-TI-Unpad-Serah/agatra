@@ -582,6 +582,21 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/user"
+  /admin/users/privileged:
+    get:
+      tags:
+        - Admin User Management
+      summary: Get all admin and maintainer users
+      description: Get all admin and maintainer users, sorted by username
+      responses:
+        '200':
+          description: All privileged users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/user"
   /admin/users/{user_id}:
     parameters:
       - name: user_id
