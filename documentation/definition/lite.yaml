@@ -825,6 +825,16 @@ components:
         name:
           description: The name of a location
           type: string
+    location_compact:
+      description: A compact location object to display on search results
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/location_id'
+        versions:
+          type: array
+          items:
+            $ref: '#/components/schemas/version'
     machine_id:
       description: The unique identifier of an arcade machine
       type: integer    
@@ -859,6 +869,19 @@ components:
         info:
           description: Info of a version. Can be null
           type: string
+        title:
+          $ref: '#/components/schemas/title_compact'
+    version_compact:
+      description: A version object without title field
+      properties:
+        id:
+          $ref: '#/components/schemas/version_id'
+        name:
+          description: The name of a version
+          type: string
+        info:
+          description: Info of a version. Can be null
+          type: string
     title_id:
       description: The unique identifier of a title
       type: integer
@@ -874,7 +897,16 @@ components:
         versions:
           type: array
           items:
-            $ref: '#/components/schemas/version'
+            $ref: '#/components/schemas/version_compact'
+    title_compact:
+      description: A title object without versions field
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/title_id'
+        name:
+          description: The name of the title
+          type: string
     user_id:
       description: The user identifier of an user
       type: integer
