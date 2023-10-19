@@ -140,54 +140,6 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/arcade_center"
-  # /centres/{arcade_center_id}:
-  #   parameters:
-  #     - name: arcade_center_id
-  #       in: path
-  #       required: true
-  #       schema:
-  #         $ref: "#/components/schemas/arcade_center_id"
-  #   get:
-  #     summary: Get a centre corresponding to the provided `arcade_center_id`
-  #     responses:
-  #       "200":
-  #         description: The centre corresponding to the provided `arcade_center_id`
-  #         content:
-  #           application/json:
-  #             schema:
-  #               $ref: "#/components/schemas/centre"
-  # /admin/centres:
-  #   post:
-  #     summary: Add a centre
-  #     description: Add a centre. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
-  #     requestBody:
-  #       content:
-  #         "multipart/form-data":
-  #           schema:
-  #             properties:
-  #               name:
-  #                 type: string
-  #               arcade_center_id:
-  #                 $ref: "#/components/schemas/arcade_center_id"
-  #               cover_image:
-  #                 type: string
-  #                 format: binary
-  #                 description: Not required. If not provided, the existing cover image will be kept
-  #               currency:
-  #                 type: string
-  #               currency_rate:
-  #                 type: number
-  #     responses:
-  #       "200":
-  #         description: The added centre
-  #         content:
-  #           application/json:
-  #             schema:
-  #               $ref: "#/components/schemas/centre"
-  #       "401":
-  #         description: Unauthorized because user is unauthenticated. Must login first
-  #       "403":
-  #         description: Forbidden because user do not have sufficient authority to add, edit or delete stuff.
   /admin/arcade_centers/{arcade_center_id}:
     parameters:
       - name: arcade_center_id
@@ -258,50 +210,6 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/city"
-  # /cities/{city_id}:
-  #   parameters:
-  #     - name: city_id
-  #       in: path
-  #       required: true
-  #       schema:
-  #         $ref: "#/components/schemas/city_id"
-  #   get:
-  #     summary: Get a city corresponding to the provided `city_id`
-  #     responses:
-  #       "200":
-  #         description: The city corresponding to the provided `city_id`
-  #         content:
-  #           application/json:
-  #             schema:
-  #               $ref: "#/components/schemas/city"
-  # /admin/cities:
-  #   post:
-  #     summary: Add a city
-  #     description: Add a city. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
-  #     requestBody:
-  #       content:
-  #         "multipart/form-data":
-  #           schema:
-  #             properties:
-  #               name:
-  #                 type: string
-  #               city_id:
-  #                 $ref: "#/components/schemas/city_id"
-  #               cover_image:
-  #                 type: string
-  #                 format: binary
-  #                 description: Not required. If not provided, the existing cover image will be kept
-  #     responses:
-  #       "200":
-  #         description: The added city
-  #         content:
-  #           application/json:
-  #             schema:
-  #               $ref: "#/components/schemas/city"
-  #       "401":
-  #         description: Unauthorized because user is unauthenticated. Must login first
-  #       "403":
-  #         description: Forbidden because user do not have sufficient authority to add, edit or delete stuff.
   /admin/cities/{city_id}:
     parameters:
       - name: city_id
@@ -376,54 +284,6 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/city"
-  # /locations/{location_id}:
-  #   parameters:
-  #     - name: location_id
-  #       in: path
-  #       required: true
-  #       schema:
-  #         $ref: "#/components/schemas/location_id"
-  #   get:
-  #     summary: Get a location corresponding to the provided `location_id`
-  #     responses:
-  #       "200":
-  #         description: The location corresponding to the provided `location_id`
-  #         content:
-  #           application/json:
-  #             schema:
-  #               $ref: "#/components/schemas/location"
-  # /admin/locations:
-  #   post:
-  #     summary: Add a location
-  #     description: Add a location. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
-  #     requestBody:
-  #       content:
-  #         "multipart/form-data":
-  #           schema:
-  #             properties:
-  #               name:
-  #                 type: string
-  #               location_id:
-  #                 $ref: "#/components/schemas/location_id"
-  #               cover_image:
-  #                 type: string
-  #                 format: binary
-  #                 description: Not required. If not provided, the existing cover image will be kept
-  #               city_id:
-  #                 $ref: "#/components/schemas/city_id"
-  #               arcade_center_id:
-  #                 $ref: "#/components/schemas/arcade_center_id"
-  #     responses:
-  #       "200":
-  #         description: The added location
-  #         content:
-  #           application/json:
-  #             schema:
-  #               $ref: "#/components/schemas/location"
-  #       "401":
-  #         description: Unauthorized because user is unauthenticated. Must login first
-  #       "403":
-  #         description: Forbidden because user do not have sufficient authority to edit or delete stuff.
   /admin/arcade_locations/{arcade_location_id}:
     parameters:
       - name: arcade_location_id
