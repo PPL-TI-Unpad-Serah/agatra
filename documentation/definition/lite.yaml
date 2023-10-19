@@ -139,7 +139,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/arcade_centers"
+                  $ref: "#/components/schemas/arcade_center"
   # /centres/{arcade_center_id}:
   #   parameters:
   #     - name: arcade_center_id
@@ -221,7 +221,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/arcade_centers"
+                $ref: "#/components/schemas/arcade_center"
         "401":
           description: Unauthorized because user is unauthenticated. Must login first
         "403":
@@ -344,7 +344,7 @@ paths:
           description: defaults to all centre if not provided
           in: query
           schema: 
-            $ref: "#/components/schemas/arcade_centers"
+            $ref: "#/components/schemas/arcade_center"
         - name: city
           description: defaults to all city if not provided
           in: query
@@ -768,7 +768,7 @@ components:
     arcade_center_id:
       description: The unique identifier of an arcade center
       type: integer
-    arcade_centers:
+    arcade_center:
       description: An arcade center object
       type: object
       required:
@@ -815,7 +815,7 @@ components:
         id:
           $ref: '#/components/schemas/location_id'
         centre:
-          $ref: '#/components/schemas/arcade_centers'
+          $ref: '#/components/schemas/arcade_center'
         machines:
           type: array
           items:
