@@ -468,7 +468,7 @@ paths:
           description: defaults to all version if not provided
           in: query
           schema:
-            $ref: "#/components/schemas/arcade_title_version_id"
+            $ref: "#/components/schemas/game_title_version_id"
         - name: location
           description: defaults to all location if not provided
           in: query
@@ -531,8 +531,8 @@ paths:
                   description: Not required. If not provided, the existing cover image will be kept
                 location_id:
                   $ref: "#/components/schemas/location_id"
-                arcade_title_version_id:
-                  $ref: '#/components/schemas/arcade_title_version_id'
+                game_title_version_id:
+                  $ref: '#/components/schemas/game_title_version_id'
                 machine_count:
                   description: The amount of a machine in an arcade centre
                   type: integer
@@ -575,8 +575,8 @@ paths:
                   description: Not required. If not provided, the existing cover image will be kept
                 location_id:
                   $ref: "#/components/schemas/location_id"
-                arcade_title_version_id:
-                  $ref: '#/components/schemas/arcade_title_version_id'
+                game_title_version_id:
+                  $ref: '#/components/schemas/game_title_version_id'
                 machine_count:
                   description: The amount of a machine in an arcade centre
                   type: integer
@@ -595,13 +595,13 @@ paths:
         "403":
           description: Forbidden because user do not have sufficient authority to edit or delete stuff.
 
-  /arcade_title_versions/{arcade_title_id}:
+  /game_title_versions/{game_title_id}:
     parameters:
-      - name: arcade_title_id
+      - name: game_title_id
         in: path
         required: true
         schema:
-          $ref: "#/components/schemas/arcade_title_id"
+          $ref: "#/components/schemas/game_title_id"
     get:
       tags:
         - User Search
@@ -615,14 +615,14 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/arcade_title_version"
-  /admin/arcade_title_versions/{arcade_title_version_id}:
+                  $ref: "#/components/schemas/game_title_version"
+  /admin/game_title_versions/{game_title_version_id}:
     parameters:
-      - name: arcade_title_version_id
+      - name: game_title_version_id
         in: path
         required: true
         schema:
-          $ref: "#/components/schemas/arcade_title_version_id"
+          $ref: "#/components/schemas/game_title_version_id"
     put:
       summary: Edit a version
       description: Edit a version. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
@@ -641,13 +641,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/arcade_title_version"
+                $ref: "#/components/schemas/game_title_version"
         "401":
           description: Unauthorized because user is unauthenticated. Must login first
         "403":
           description: Forbidden because user do not have sufficient authority to edit or delete stuff.
 
-  /arcade_titles:
+  /game_titles:
     get:
       tags:
         - User Search
@@ -661,14 +661,14 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/arcade_title"
-  /admin/arcade_titles/{arcade_title_id}:
+                  $ref: "#/components/schemas/game_title"
+  /admin/game_titles/{game_title_id}:
     parameters:
-      - name: arcade_title_id
+      - name: game_title_id
         in: path
         required: true
         schema:
-          $ref: "#/components/schemas/arcade_title_id"
+          $ref: "#/components/schemas/game_title_id"
     put:
       summary: Edit an arcade game title
       description: Edit an arcade game title. Only `admin` can use this endpoint.
@@ -685,7 +685,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/arcade_title"
+                $ref: "#/components/schemas/game_title"
         "401":
           description: Unauthorized because user is unauthenticated. Must login first
         "403":
@@ -834,7 +834,7 @@ components:
         versions:
           type: array
           items:
-            $ref: '#/components/schemas/arcade_title_version'
+            $ref: '#/components/schemas/game_title_version'
     machine_id:
       description: The unique identifier of an arcade machine
       type: integer    
@@ -847,22 +847,22 @@ components:
         location:
           $ref: "#/components/schemas/location"
         version:
-          $ref: '#/components/schemas/arcade_title_version'
+          $ref: '#/components/schemas/game_title_version'
         machine_count:
           description: The amount of a machine in an arcade centre
           type: integer
         price:
           description: The price for each play of a machine
           type: integer
-    arcade_title_version_id:
+    game_title_version_id:
       description: The unique identifier of the version of an arcade machine
       type: integer
-    arcade_title_version:
+    game_title_version:
       description: A version object
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/arcade_title_version_id'
+          $ref: '#/components/schemas/game_title_version_id'
         name:
           description: The name of a version
           type: string
@@ -871,39 +871,39 @@ components:
           type: string
         title:
           $ref: '#/components/schemas/title_compact'
-    arcade_title_version_compact:
+    game_title_version_compact:
       description: A version object without title field
       properties:
         id:
-          $ref: '#/components/schemas/arcade_title_version_id'
+          $ref: '#/components/schemas/game_title_version_id'
         name:
           description: The name of a version
           type: string
         info:
           description: Info of a version. Can be null
           type: string
-    arcade_title_id:
+    game_title_id:
       description: The unique identifier of a title
       type: integer
-    arcade_title:
+    game_title:
       description: A title object
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/arcade_title_id'
+          $ref: '#/components/schemas/game_title_id'
         name:
           description: The name of the title
           type: string
         versions:
           type: array
           items:
-            $ref: '#/components/schemas/arcade_title_version_compact'
+            $ref: '#/components/schemas/game_title_version_compact'
     title_compact:
       description: A title object without versions field
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/arcade_title_id'
+          $ref: '#/components/schemas/game_title_id'
         name:
           description: The name of the title
           type: string
