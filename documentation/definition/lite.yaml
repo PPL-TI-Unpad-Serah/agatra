@@ -188,7 +188,7 @@ paths:
   #         description: Unauthorized because user is unauthenticated. Must login first
   #       "403":
   #         description: Forbidden because user do not have sufficient authority to add, edit or delete stuff.
-  # /admin/centres/{centre_id}:
+  /admin/centres/{centre_id}:
     parameters:
       - name: centre_id
         in: path
@@ -300,7 +300,7 @@ paths:
   #         description: Unauthorized because user is unauthenticated. Must login first
   #       "403":
   #         description: Forbidden because user do not have sufficient authority to add, edit or delete stuff.
-  # /admin/cities/{city_id}:
+  /admin/cities/{city_id}:
     parameters:
       - name: city_id
         in: path
@@ -420,7 +420,7 @@ paths:
   #         description: Unauthorized because user is unauthenticated. Must login first
   #       "403":
   #         description: Forbidden because user do not have sufficient authority to edit or delete stuff.
-  # /admin/locations/{location_id}:
+  /admin/locations/{location_id}:
     parameters:
       - name: location_id
         in: path
