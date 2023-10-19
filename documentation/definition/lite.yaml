@@ -595,13 +595,13 @@ paths:
         "403":
           description: Forbidden because user do not have sufficient authority to edit or delete stuff.
 
-  /versions/{title_id}:
+  /versions/{arcade_title_id}:
     parameters:
-      - name: title_id
+      - name: arcade_title_id
         in: path
         required: true
         schema:
-          $ref: "#/components/schemas/title_id"
+          $ref: "#/components/schemas/arcade_title_id"
     get:
       tags:
         - User Search
@@ -647,7 +647,7 @@ paths:
         "403":
           description: Forbidden because user do not have sufficient authority to edit or delete stuff.
 
-  /titles:
+  /arcade_titles:
     get:
       tags:
         - User Search
@@ -661,14 +661,14 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/title"
-  /admin/titles/{title_id}:
+                  $ref: "#/components/schemas/arcade_title"
+  /admin/arcade_titles/{arcade_title_id}:
     parameters:
-      - name: title_id
+      - name: arcade_title_id
         in: path
         required: true
         schema:
-          $ref: "#/components/schemas/title_id"
+          $ref: "#/components/schemas/arcade_title_id"
     put:
       summary: Edit an arcade game title
       description: Edit an arcade game title. Only `admin` can use this endpoint.
@@ -685,7 +685,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/title"
+                $ref: "#/components/schemas/arcade_title"
         "401":
           description: Unauthorized because user is unauthenticated. Must login first
         "403":
@@ -882,15 +882,15 @@ components:
         info:
           description: Info of a version. Can be null
           type: string
-    title_id:
+    arcade_title_id:
       description: The unique identifier of a title
       type: integer
-    title:
+    arcade_title:
       description: A title object
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/title_id'
+          $ref: '#/components/schemas/arcade_title_id'
         name:
           description: The name of the title
           type: string
@@ -903,7 +903,7 @@ components:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/title_id'
+          $ref: '#/components/schemas/arcade_title_id'
         name:
           description: The name of the title
           type: string
