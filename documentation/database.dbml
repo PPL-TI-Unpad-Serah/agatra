@@ -16,26 +16,26 @@ table users {
   role roles
 }
 
-Table titles {
+Table game_titles {
   id integer [primary key]
   name varchar [note: 'SOUND VOLTEX, Wangan Midnight Maximum Tune, etc']
 }
 
-Table title_versions {
+Table game_title_versions {
   id integer [primary key]
   title_id integer [note: "Shown in JSON response as a title object"]
   name varchar [note: 'the "EXCEED GEAR" part of "SOUND VOLTEX EXCEED GEAR"']
   price_info text [note: 'Some arcade games have different systems for determining "one play", e.g. SDVX requires at least 5 card swipes to play a game of 3 songs. The info is given here']
 }
 
-Ref: title_versions.title_id > titles.id
+Ref: game_title_versions.title_id > game_titles.id
 
 Table cities {
   id integer [primary key]
   name varchar
 }
 
-Table game_centers {
+Table arcade_centers {
   id integer [primary key]
   name varchar [note: "Timezone, Game Master, etc"]
   info text [note: 'Notably, Timezone has its own TIZO currency. Other than that, probably just tell the various promo a customer can get']
@@ -45,13 +45,13 @@ Table arcade_locations {
   id integer [primary key]
   game_center_id integer [note: "Shown in JSON response as a game_center object"]
   city_id integer [note: "Shown in JSON response as a city object"]
-  name varchar [note: '"Bandung Indah Mall", "23Paskal", etc. the display name on the listing is shown as game_centers.name + arcade_locations.name']
+  name varchar [note: '"Bandung Indah Mall", "23Paskal", etc. the display name on the listing is shown as arcade_centers.name + arcade_locations.name']
   lat float
   long float
   description text
 }
 
-Ref: arcade_locations.game_center_id > game_centers.id
+Ref: arcade_locations.game_center_id > arcade_centers.id
 Ref: arcade_locations.city_id > cities.id
 
 Table arcade_machines {
@@ -63,5 +63,5 @@ Table arcade_machines {
   notes text
 }
 
-Ref: arcade_machines.title_version_id > title_versions.id
+Ref: arcade_machines.title_version_id > game_title_versions.id
 Ref: arcade_machines.arcade_location_id > arcade_locations.id
