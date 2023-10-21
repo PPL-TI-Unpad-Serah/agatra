@@ -212,6 +212,14 @@ paths:
       summary: Get all arcade locations
       description: Get all arcade locations. Fetches 10 at a time
       parameters:
+        - name: search
+          in: query
+          description: |
+            Should be >3 characters in length to take effect
+
+            if this is provided, just ignore everything else
+          schema:
+            type: string
         - name: nearby
           description: takes priority over city. If true, will return locations sorted by distance from the user's location. Defaults to all if neither is provided.
           in: query
