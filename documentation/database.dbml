@@ -23,12 +23,12 @@ Table game_titles {
 
 Table game_title_versions {
   id integer [primary key]
-  title_id integer [note: "Shown in JSON response as a title object"]
+  game_title_id integer [note: "Shown in JSON response as a title object"]
   name varchar [note: 'the "EXCEED GEAR" part of "SOUND VOLTEX EXCEED GEAR"']
   price_info text [note: 'Some arcade games have different systems for determining "one play", e.g. SDVX requires at least 5 card swipes to play a game of 3 songs. The info is given here']
 }
 
-Ref: game_title_versions.title_id > game_titles.id
+Ref: game_title_versions.game_title_id > game_titles.id
 
 Table cities {
   id integer [primary key]
@@ -43,7 +43,7 @@ Table arcade_centers {
 
 Table arcade_locations {
   id integer [primary key]
-  game_center_id integer [note: "Shown in JSON response as a game_center object"]
+  arcade_center_id integer [note: "Shown in JSON response as a game_center object"]
   city_id integer [note: "Shown in JSON response as a city object"]
   name varchar [note: '"Bandung Indah Mall", "23Paskal", etc. the display name on the listing is shown as arcade_centers.name + arcade_locations.name']
   lat float
@@ -51,17 +51,17 @@ Table arcade_locations {
   description text
 }
 
-Ref: arcade_locations.game_center_id > arcade_centers.id
+Ref: arcade_locations.arcade_center_id > arcade_centers.id
 Ref: arcade_locations.city_id > cities.id
 
 Table arcade_machines {
   id integer [primary key]
-  title_version_id integer [note: "Shown in JSON response as a title_version object"]
+  game_title_version_id integer [note: "Shown in JSON response as a title_version object"]
   arcade_location_id integer [note: "Shown in JSON response as a arcade_location object"]
   machine_count int [note: 'how many machines/cabinets are in the place']
   price int
   notes text
 }
 
-Ref: arcade_machines.title_version_id > game_title_versions.id
+Ref: arcade_machines.game_title_version_id > game_title_versions.id
 Ref: arcade_machines.arcade_location_id > arcade_locations.id
