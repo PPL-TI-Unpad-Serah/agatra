@@ -116,7 +116,7 @@ paths:
       tags:
         - User Search
       summary: Get all arcade centres
-      description: Get all arcade centres.
+      description: Get all arcade centres. Sorted alphabetically descending
       responses:
         '200':
           description: All arcade centres
@@ -164,7 +164,7 @@ paths:
       tags:
         - User Search
       summary: Get all cities
-      description: Get all cities
+      description: Get all cities.  Sorted alphabetically descending
       responses:
         '200':
           description: All cities
@@ -418,7 +418,7 @@ paths:
       tags:
         - User Search
       summary: Get all arcade machine versions
-      description: Get all arcade machine versions of a title
+      description: Get all arcade machine versions of a title.  Sorted by PK descending
       responses:
         '200':
           description: All arcade machine versions of the title specified in `title_id`
@@ -466,7 +466,7 @@ paths:
       tags:
         - User Search
       summary: Get all arcade game titles
-      description: Get all arcade game titles
+      description: Get all arcade game titles. Sorted alphabetically descending
       responses:
         '200':
           description: All arcade game titles
