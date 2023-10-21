@@ -116,24 +116,10 @@ paths:
       tags:
         - User Search
       summary: Get all arcade centres
-      description: Get all arcade centres. Fetches 10 items at a time
-      parameters:
-        - name: page
-          description: defaults to 1 (first page) if not provided
-          in: query
-          schema:
-            type: integer
-        - name: search
-          in: query
-          description: |
-            mostly for creator page \
-            If using search query, page query will not apply (fetch all results) \
-            Search query should be >3 characters in length to take effect
-          schema:
-            type: string
+      description: Get all arcade centres.
       responses:
         '200':
-          description: All arcade centres on the specified page
+          description: All arcade centres
           content:
             application/json:
               schema:
@@ -149,9 +135,9 @@ paths:
           $ref: "#/components/schemas/arcade_center_id"
     put:
       tags:
-        - Maintainer Content Management
-      summary: Edit a centre
-      description: Edit a centre. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
+        - Admin Supported Content Management
+      summary: Edit an arcade center
+      description: Edit an arcade center. Only `admin` can use this endpoint.
       requestBody:
         content:
           "multipart/form-data":
@@ -159,15 +145,11 @@ paths:
               properties:
                 name:
                   type: string
-                arcade_center_id:
-                  $ref: "#/components/schemas/arcade_center_id"
-                currency:
+                info:
                   type: string
-                currency_rate:
-                  type: number
       responses:
         "200":
-          description: The edited centre
+          description: The edited arcade center
           content:
             application/json:
               schema:
@@ -634,12 +616,9 @@ components:
         name:
           description: The name of an arcade centre
           type: string
-        currency:
-          description: The currency of an arcade centre
+        info:
+          description: Information of the arcade center, usually regarding its currency
           type: string
-        currency_rate:
-          description: The rate in which money in rupiah currency is converted to centre's currency
-          type: number
     city_id:
       description: The unique identifier of a city
       type: integer
