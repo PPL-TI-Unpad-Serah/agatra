@@ -182,24 +182,10 @@ paths:
       tags:
         - User Search
       summary: Get all cities
-      description: Get all city. Fetches 10 at a time
-      parameters:
-        - name: page
-          description: defaults to 1 (first page) if not provided
-          in: query
-          schema:
-            type: integer
-        - name: search
-          in: query
-          description: |
-            mostly for creator page \
-            If using search query, page query will not apply (fetch all results) \
-            Search query should be >3 characters in length to take effect
-          schema:
-            type: string
+      description: Get all cities
       responses:
         '200':
-          description: All cities on the specified page
+          description: All cities
           content: 
             application/json:
               schema:
@@ -217,7 +203,7 @@ paths:
       tags:
         - Admin Supported Content Management
       summary: Edit a city
-      description: Edit a city. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
+      description: Edit a city. Only `admin` can use this endpoint.
       requestBody:
         content:
           "multipart/form-data":
@@ -225,8 +211,6 @@ paths:
               properties:
                 name:
                   type: string
-                city_id:
-                  $ref: "#/components/schemas/city_id"
       responses:
         "200":
           description: The edited city
