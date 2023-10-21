@@ -280,7 +280,7 @@ paths:
       tags:
         - Maintainer Content Management
       summary: Edit a location
-      description: Edit a location. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
+      description: Edit a location. Only 'admin' or 'maintainer' can use this endpoint.
       requestBody:
         content:
           "multipart/form-data":
@@ -354,7 +354,7 @@ paths:
   /admin/arcade_machines:
     post:
       summary: Add a machine
-      description: Add a machine. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
+      description: Add a machine. Only 'admin' or 'maintainer' can use this endpoint.
       requestBody:
         content:
           "multipart/form-data":
@@ -396,7 +396,7 @@ paths:
       tags:
         - Maintainer Content Management
       summary: Edit a machine
-      description: Edit a machine. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
+      description: Edit a machine. Only Only 'admin' or 'maintainer' can use this endpoint.
       requestBody:
         content:
           "multipart/form-data":
@@ -458,7 +458,7 @@ paths:
       tags:
         - Admin Supported Content Management
       summary: Edit a version
-      description: Edit a version. Only user with roles of 'maintainer' or 'admin' is able to add, edit, or delete stuff.
+      description: Edit a version. Only `admin` can use this endpoint.
       requestBody:
         content:
           "multipart/form-data":
