@@ -258,7 +258,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/city"
+                  $ref: "#/components/schemas/arcade_location_compact"
   /arcade_locations/{arcade_location_id}:
     parameters:
       - name: arcade_location_id
@@ -302,8 +302,6 @@ paths:
                   type: number
                 long:
                   type: number
-                location_id:
-                  $ref: "#/components/schemas/arcade_location_id"
                 city_id:
                   $ref: "#/components/schemas/city_id"
                 arcade_center_id:
@@ -361,6 +359,8 @@ paths:
                 $ref: "#/components/schemas/arcade_machine"
   /admin/arcade_machines:
     post:
+      tags:
+        - Maintainer Content Management
       summary: Add a machine
       description: Add a machine. Only `admin` or `maintainer` can use this endpoint.
       requestBody:
@@ -697,6 +697,8 @@ components:
       properties:
         id:
           $ref: '#/components/schemas/arcade_location_id'
+        name:
+          type: string
         versions:
           type: array
           items:
