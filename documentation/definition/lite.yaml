@@ -163,6 +163,7 @@ paths:
     get:
       tags:
         - User Search
+        - Sprint 6 Endpoints
       summary: Get all cities
       description: Get all cities.  Sorted alphabetically descending
       responses:
@@ -174,6 +175,27 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/city"
+  /admin/cities:
+    post:
+      tags:
+        - Admin Supported Content Management
+        - Sprint 6 Endpoints
+      summary: Add a city
+      description: Edit a city. Only `admin` can use this endpoint.
+      requestBody:
+        content:
+          "multipart/form-data":
+            schema:
+              properties:
+                name:
+                  type: string
+      responses:
+        "200":
+          description: The added city
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/city"
   /admin/cities/{city_id}:
     parameters:
       - name: city_id
@@ -184,6 +206,7 @@ paths:
     put:
       tags:
         - Admin Supported Content Management
+        - Sprint 6 Endpoints
       summary: Edit a city
       description: Edit a city. Only `admin` can use this endpoint.
       requestBody:
@@ -492,6 +515,7 @@ paths:
     get:
       tags:
         - User Search
+        - Sprint 6 Endpoints
       summary: Get all arcade game titles
       description: Get all arcade game titles. Sorted alphabetically descending
       responses:
@@ -503,6 +527,31 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/game_title"
+  /admin/game_titles:
+    post:
+      tags:
+        - Admin Supported Content Management
+        - Sprint 6 Endpoints
+      summary: Add a game title
+      description: Add a game title. Only `admin` can use this endpoint.
+      requestBody:
+        content:
+          "multipart/form-data":
+            schema:
+              properties:
+                name:
+                  type: string
+      responses:
+        "200":
+          description: The added arcade game title
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/game_title"
+        "401":
+          description: Unauthorized because user is unauthenticated. Must login first
+        "403":
+          description: Forbidden because user do not have sufficient authority to edit or delete stuff.
   /admin/game_titles/{game_title_id}:
     parameters:
       - name: game_title_id
@@ -513,6 +562,7 @@ paths:
     put:
       tags:
         - Admin Supported Content Management
+        - Sprint 6 Endpoints
       summary: Edit an arcade game title
       description: Edit an arcade game title. Only `admin` can use this endpoint.
       requestBody:
