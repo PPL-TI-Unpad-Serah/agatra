@@ -18,9 +18,9 @@
 - Ananda Shaquille Farell: 1 SP
   - [x] GEN-19 Initiate UI/UX Design 1 SP
 - Osmond Haylim: 1 SP
-  - [x] GEN-16 Create Database ERD
+  - [x] GEN-16 Create Database ERD 1 SP
 - Fauzan Azmi Dwicahyo: 1 SP
-  - [x] GEN-14 Finish User Stories
+  - [x] GEN-14 Finish User Stories 1 SP
 
 #### Delivered:	3 SP
 
