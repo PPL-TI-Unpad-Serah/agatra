@@ -1,0 +1,34 @@
+# Sprint 01
+
+|Date|18 September 2023|
+| :- | :- |
+|Created by|Fauzan Azmi Dwicahyo|
+|Participant|Rommel Malik Kusnadi, Osmond Haylim, Ananda Shaquille Farell, Fauzan Azmi Dwicahyo|
+
+## Sprint Planning
+
+### Goals:
+- Initiate Notion Workspace
+- Initiate GitHub Repo
+
+### Breakdown Task:
+
+#### Commitment: 5 SP
+- Ananda Shaquille Farell: 1 SP
+  - [x] GEN-19 Initiate UI/UX Design 1 SP
+- Osmond Haylim: 1 SP
+  - [x] GEN-16 Create Database ERD
+- Fauzan Azmi Dwicahyo: 1 SP
+  - [x] GEN-14 Finish User Stories
+
+#### Delivered:	3 SP
+
+### During Sprint
+2023-09-18:
+
+1. Feedback
+2. Blocker
+
+### Notes Sprint Review
+
+
