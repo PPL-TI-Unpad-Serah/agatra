@@ -14,7 +14,7 @@
 
 ### Breakdown Task:
 
-#### Commitment: 5 SP
+#### Commitment: 3 SP
 - Ananda Shaquille Farell: 1 SP
   - [x] GEN-19 Initiate UI/UX Design 1 SP
 - Osmond Haylim: 1 SP
