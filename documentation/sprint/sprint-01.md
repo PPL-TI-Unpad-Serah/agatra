@@ -8,8 +8,9 @@
 ## Sprint Planning
 
 ### Goals:
-- Initiate Notion Workspace
-- Initiate GitHub Repo
+- Initiate UI/UX Design
+- Create User Stories
+- Create Database ERD
 
 ### Breakdown Task:
 
