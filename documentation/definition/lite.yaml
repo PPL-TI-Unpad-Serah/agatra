@@ -241,12 +241,12 @@ paths:
           schema:
             type: string
         - name: lang
-          description: takes priority over city only if BOTH lang and lat is provided. If so, will return locations sorted by distance from the user's location. Defaults to all if neither is provided.
+          description: only considered if BOTH lang and lat are provided. Takes priority over city. If so, will return locations sorted by distance from the user's location. Defaults to all if neither is provided.
           in: query
           schema:
             type: number
         - name: lat
-          description: takes priority over city only if BOTH lang and lat is provided. If so, will return locations sorted by distance from the user's location. Defaults to all if neither is provided.
+          description: only considered if BOTH lang and lat are provided. Takes priority over city. If so, will return locations sorted by distance from the user's location. Defaults to all if neither is provided.
           in: query
           schema:
             type: number
