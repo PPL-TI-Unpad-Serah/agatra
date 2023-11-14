@@ -240,11 +240,16 @@ paths:
             if this is provided, just ignore everything else
           schema:
             type: string
-        - name: nearby
-          description: takes priority over city. If true, will return locations sorted by distance from the user's location. Defaults to all if neither is provided.
+        - name: lang
+          description: takes priority over city only if BOTH lang and lat is provided. If so, will return locations sorted by distance from the user's location. Defaults to all if neither is provided.
           in: query
           schema:
-            type: boolean
+            type: number
+        - name: lat
+          description: takes priority over city only if BOTH lang and lat is provided. If so, will return locations sorted by distance from the user's location. Defaults to all if neither is provided.
+          in: query
+          schema:
+            type: number
         - name: city
           description: unused if nearby is true. Defaults to all if neither is provided.
           in: query
