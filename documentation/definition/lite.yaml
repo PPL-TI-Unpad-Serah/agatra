@@ -163,7 +163,6 @@ paths:
     get:
       tags:
         - User Search
-        - Sprint 6 Endpoints
       summary: Get all cities
       description: Get all cities.  Sorted alphabetically descending
       responses:
@@ -179,7 +178,6 @@ paths:
     post:
       tags:
         - Admin Supported Content Management
-        - Sprint 6 Endpoints
       summary: Add a city
       description: Edit a city. Only `admin` can use this endpoint.
       requestBody:
@@ -206,7 +204,6 @@ paths:
     put:
       tags:
         - Admin Supported Content Management
-        - Sprint 6 Endpoints
       summary: Edit a city
       description: Edit a city. Only `admin` can use this endpoint.
       requestBody:
@@ -515,7 +512,6 @@ paths:
     get:
       tags:
         - User Search
-        - Sprint 6 Endpoints
       summary: Get all arcade game titles
       description: Get all arcade game titles. Sorted alphabetically descending
       responses:
@@ -531,7 +527,6 @@ paths:
     post:
       tags:
         - Admin Supported Content Management
-        - Sprint 6 Endpoints
       summary: Add a game title
       description: Add a game title. Only `admin` can use this endpoint.
       requestBody:
@@ -562,7 +557,6 @@ paths:
     put:
       tags:
         - Admin Supported Content Management
-        - Sprint 6 Endpoints
       summary: Edit an arcade game title
       description: Edit an arcade game title. Only `admin` can use this endpoint.
       requestBody:
