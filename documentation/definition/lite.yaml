@@ -126,6 +126,51 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/arcade_center"
+  /arcade_centers/{arcade_center_id}:
+    parameters:
+      - name: arcade_center_id
+        in: path
+        required: true
+        schema:
+          $ref: "#/components/schemas/arcade_center_id"
+    get:
+      tags:
+        - Admin Supported Content Management
+      summary: Get an arcade center
+      responses:
+        "200":
+          description: The arcade center corresponding to the provided `arcade_center_id`
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/arcade_center"
+  /admin/arcade_centers:
+    post:
+      tags:
+        - Admin Supported Content Management
+      summary: Add an arcade center
+      description: Add an arcade center. Only `admin` can use this endpoint.
+      requestBody:
+        content:
+          "multipart/form-data":
+            schema:
+              properties:
+                name:
+                  type: string
+                info:
+                  type: string
+      responses:
+        "200":
+          description: The added arcade center
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/arcade_center"
+        "401":
+          description: Unauthorized because user is unauthenticated. Must login first
+        "403":
+          description: Forbidden because user do not have sufficient authority to add, edit or delete stuff.
+
   /admin/arcade_centers/{arcade_center_id}:
     parameters:
       - name: arcade_center_id
@@ -174,6 +219,24 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/city"
+  /cities/{city_id}:
+    parameters:
+      - name: city_id
+        in: path
+        required: true
+        schema:
+          $ref: "#/components/schemas/city_id"
+    get:
+      tags:
+        - Admin Supported Content Management
+      summary: Get a city
+      responses:
+        "200":
+          description: The city corresponding to the provided `city_id`
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/city"
   /admin/cities:
     post:
       tags:
