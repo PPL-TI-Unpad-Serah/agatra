@@ -303,13 +303,13 @@ paths:
             if this is provided, just ignore everything else
           schema:
             type: string
-        - name: lang
-          description: only considered if BOTH lang and lat are provided. Takes priority over city. If so, will return locations sorted by distance from the user's location. Defaults to all if neither is provided.
+        - name: long
+          description: only considered if BOTH long and lat are provided. Takes priority over city. If so, will return locations sorted by distance from the user's location. Defaults to all if neither is provided.
           in: query
           schema:
             type: number
         - name: lat
-          description: only considered if BOTH lang and lat are provided. Takes priority over city. If so, will return locations sorted by distance from the user's location. Defaults to all if neither is provided.
+          description: only considered if BOTH long and lat are provided. Takes priority over city. If so, will return locations sorted by distance from the user's location. Defaults to all if neither is provided.
           in: query
           schema:
             type: number
