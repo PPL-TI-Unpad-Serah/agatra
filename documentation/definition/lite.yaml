@@ -522,27 +522,74 @@ paths:
         "403":
           description: Forbidden because user do not have sufficient authority to edit or delete stuff.
 
-  /game_title_versions/{game_title_id}:
-    parameters:
-      - name: game_title_id
-        in: path
-        required: true
-        schema:
-          $ref: "#/components/schemas/game_title_id"
+  /game_title_versions:
     get:
       tags:
         - User Search
       summary: Get all arcade machine versions
       description: Get all arcade machine versions of a title.  Sorted by PK descending
+      parameters:
+        - name: game_title
+          in: query
+          required: true
+          description: required!
+          schema:
+            $ref: "#/components/schemas/game_title_id"
       responses:
         '200':
-          description: All arcade machine versions of the title specified in `title_id`
+          description: All game title versions of the title specified in `game_title`
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: "#/components/schemas/game_title_version"
+  /game_title_versions/{game_title_version_id}:
+    parameters:
+      - name: game_title_version_id
+        in: path
+        required: true
+        schema:
+          $ref: "#/components/schemas/game_title_version_id"
+    get:
+      tags:
+        - Admin Supported Content Management
+      summary: Get a game title version
+      responses:
+        '200':
+          description: the game title versions of the title specified in `title_id`
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/game_title_version"
+  /admin/game_title_versions:
+    post:
+      tags:
+        - Admin Supported Content Management
+      summary: Add a version
+      description: Add a version. Only `admin` can use this endpoint.
+      requestBody:
+        content:
+          "multipart/form-data":
+            schema:
+              properties:
+                title_id:
+                  $ref: "#/components/schemas/game_title_id"
+                name:
+                  type: string
+                info:
+                  type: string
+      responses:
+        "200":
+          description: The added version
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/game_title_version"
+        "401":
+          description: Unauthorized because user is unauthenticated. Must login first
+        "403":
+          description: Forbidden because user do not have sufficient authority to edit or delete stuff.
   /admin/game_title_versions/{game_title_version_id}:
     parameters:
       - name: game_title_version_id
@@ -615,6 +662,25 @@ paths:
           description: Unauthorized because user is unauthenticated. Must login first
         "403":
           description: Forbidden because user do not have sufficient authority to edit or delete stuff.
+  /game_titles/{game_title_id}:
+    parameters:
+      - name: game_title_id
+        in: path
+        required: true
+        schema:
+          $ref: "#/components/schemas/game_title_id"
+    get:
+      tags:
+        - Admin Supported Content Management
+      summary: Get an arcade game title
+      responses:
+        "200":
+          description: The arcade game title (compact) corresponding to the provided `game_title_id`
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/game_title_compact"
+
   /admin/game_titles/{game_title_id}:
     parameters:
       - name: game_title_id
