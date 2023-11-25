@@ -365,7 +365,42 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/arcade_location"
-  /admin/arcade_locations/{arcade_location_id}:
+  /maintainer/arcade_locations:
+    post:
+      tags:
+        - Maintainer Content Management
+      summary: Add a location
+      description: Add a location. Only `admin` or `maintainer` can use this endpoint.
+      requestBody:
+        content:
+          "multipart/form-data":
+            schema:
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                lat:
+                  type: number
+                long:
+                  type: number
+                city_id:
+                  $ref: "#/components/schemas/city_id"
+                arcade_center_id:
+                  $ref: "#/components/schemas/arcade_center_id"
+      responses:
+        "200":
+          description: The created location
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/arcade_location"
+        "401":
+          description: Unauthorized because user is unauthenticated. Must login first
+        "403":
+          description: Forbidden because user do not have sufficient authority to edit or delete stuff.
+
+  /maintainer/arcade_locations/{arcade_location_id}:
     parameters:
       - name: arcade_location_id
         in: path
@@ -445,7 +480,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/arcade_machine"
-  /admin/arcade_machines:
+  /maintainer/arcade_machines:
     post:
       tags:
         - Maintainer Content Management
@@ -458,8 +493,6 @@ paths:
               properties:
                 name:
                   type: string
-                machine_id:
-                  $ref: "#/components/schemas/arcade_machine_id"
                 location_id:
                   $ref: "#/components/schemas/arcade_location_id"
                 game_title_version_id:
@@ -481,7 +514,7 @@ paths:
           description: Unauthorized because user is unauthenticated. Must login first
         "403":
           description: Forbidden because user do not have sufficient authority to edit or delete stuff.
-  /admin/arcade_machines/{arcade_machine_id}:
+  /maintainer/arcade_machines/{arcade_machine_id}:
     parameters:
       - name: arcade_machine_id
         in: path
@@ -500,8 +533,6 @@ paths:
               properties:
                 name:
                   type: string
-                machine_id:
-                  $ref: "#/components/schemas/arcade_machine_id"
                 game_title_version_id:
                   $ref: '#/components/schemas/game_title_version_id'
                 machine_count:
@@ -513,6 +544,23 @@ paths:
       responses:
         "200":
           description: The edited machine
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/arcade_machine"
+        "401":
+          description: Unauthorized because user is unauthenticated. Must login first
+        "403":
+          description: Forbidden because user do not have sufficient authority to edit or delete stuff.
+
+    delete:
+      tags:
+        - Maintainer Content Management
+      summary: Delete a machine
+      description: Delete a machine. Only `admin` and `maintainer` can use this endpoint.
+      responses:
+        "200":
+          description: The deleted machine
           content:
             application/json:
               schema:
@@ -883,12 +931,12 @@ components:
             $ref: '#/components/schemas/game_title_version'
     arcade_machine_id:
       description: The unique identifier of an arcade machine
-      type: integer    
+      type: integer
     arcade_machine:
       description: A machine object
       type: object
       properties:
-        machine_id:
+        id:
           $ref: '#/components/schemas/arcade_machine_id'
         version:
           $ref: '#/components/schemas/game_title_version'
