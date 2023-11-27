@@ -512,6 +512,9 @@ paths:
                 price:
                   description: The price for each play of a machine
                   type: integer
+                notes:
+                  description: Notes of a machine. Can be null
+                  type: string
       responses:
         "200":
           description: The added machine
@@ -550,6 +553,9 @@ paths:
                 price:
                   description: The price for each play of a machine
                   type: integer
+                notes:
+                  description: Notes of a machine. Can be null
+                  type: string
       responses:
         "200":
           description: The edited machine
@@ -957,6 +963,9 @@ components:
         price:
           description: The price for each play of a machine
           type: integer
+        notes:
+          description: Notes of a machine. Can be null
+          type: string
     game_title_version_id:
       description: The unique identifier of the version of an arcade machine
       type: integer
