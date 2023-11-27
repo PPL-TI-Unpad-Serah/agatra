@@ -42,17 +42,13 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  error:
-                    $ref: "#/components/schemas/error"
+                $ref: "#/components/schemas/error"
         500:
           description: Internal server error
           content:
             application/json:
               schema:
-                properties:
-                  error:
-                    $ref: "#/components/schemas/error"
+                $ref: "#/components/schemas/error"
   /logout:
     post:
       tags:
@@ -91,25 +87,19 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  error:
-                    $ref: "#/components/schemas/error"
+                $ref: "#/components/schemas/error"
         409: 
           description: Account username or email already existed
           content:
             application/json:
               schema:
-                properties:
-                  error:
-                    $ref: "#/components/schemas/error"
+                $ref: "#/components/schemas/error"
         500: 
           description: Internal server error
           content:
             application/json:
               schema:
-                properties:
-                  error:
-                    $ref: "#/components/schemas/error"
+                $ref: "#/components/schemas/error"
 
   /arcade_centers:
     get:
