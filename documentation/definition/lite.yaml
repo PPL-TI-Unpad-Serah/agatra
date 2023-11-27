@@ -101,6 +101,20 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
+  /profile:
+    get:
+      tags:
+        - Auth
+      summary: Get user profile of the owner of attached token
+      responses:
+        200:
+          description: User profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/user"
+        401:
+          description: Unauthorized because user is unauthenticated. Must login first
 
   /arcade_centers:
     get:
