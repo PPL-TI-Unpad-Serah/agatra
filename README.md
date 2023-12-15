@@ -15,3 +15,4 @@ Aplikasi untuk mengetahui permainan arked terdekat dari posisi mu!
 - [Android App Download](https://github.com/PPL-TI-Unpad-Serah/agatra-frontend/releases/download/v1.0.0/agatra-v1.0.0.apk)
 - [Manual Book](https://docs.google.com/document/d/1pVYB0HuVxodfD6rC4IxsKESKh0uwQA1J7iVXLwDY4Ac/edit)
 - API Endpoint: https://oyster-app-3g63e.ondigitalocean.app/agatra/
+- <a id="raw-url" href="https://raw.githubusercontent.com/PPL-TI-Unpad-Serah/agatra/main/documentation/api-test-report-2023-12-14.html">API Report 14 Dec 2023 (Download)</a>
